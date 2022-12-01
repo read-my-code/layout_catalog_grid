@@ -1,14 +1,24 @@
-html {
-  font-family: Roboto, sans-serif;
-}
+@import "utils/normalize";
+@import "utils/reset";
+@import "utils/variables";
+@import "blocks/_header.scss";
+@import "blocks/_catalog.scss";
 
-body {
-  margin: 0;
-}
+.catalog {
+  display: grid;
+  gap: 48px;
+  grid-template-columns: repeat(1, $card-width);
+  justify-content: center;
 
-* {
-  box-sizing: border-box;
-}
+  @media (min-width: 488px) {
+    grid-template-columns: repeat(2, $card-width);
+  }
 
-@import "_header.scss";
-@import "_catalog.scss";
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, $card-width);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, $card-width);
+  }
+}
